@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="Detector-energy based radionuclide identification library" />
+  <title>NatureNuclideLibrary</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div id="authGate" class="auth-gate" aria-hidden="false">
+    <form id="authForm" class="auth-card" autocomplete="off">
+      <div class="brand-mark large">NN</div>
+      <p class="eyebrow">Scientific reference workspace</p>
+      <h1>NatureNuclideLibrary</h1>
+      <p class="muted">검출기 × 측정에너지 기반 핵종 판독 라이브러리</p>
+      <label class="field-label" for="passwordInput">Access password</label>
+      <div class="password-row">
+        <input id="passwordInput" type="password" autocomplete="current-password" placeholder="Password" required />
+        <button type="submit" class="btn primary">Enter</button>
+      </div>
+      <p id="authError" class="form-error" role="alert"></p>
+      <p class="auth-note">정적 GitHub Pages의 브라우저 측 접근 게이트입니다. 기밀정보 보호를 위한 서버 인증은 아닙니다.</p>
+    </form>
+  </div>
+
+  <div id="app" class="app-shell" hidden>
+    <aside id="sidebar" class="sidebar">
+      <div class="brand-block">
+        <div class="brand-mark">NN</div>
+        <div>
+          <strong>NatureNuclideLibrary</strong>
+          <span>Nuclide interpretation</span>
+        </div>
+      </div>
+      <nav id="nav" class="nav-list" aria-label="Main navigation"></nav>
+      <div class="sidebar-footer">
+        <div class="status-dot"><span></span> Local static dataset</div>
+        <small id="datasetStamp"></small>
+      </div>
+    </aside>
+
+    <main class="main-shell">
+      <header class="topbar">
+        <div class="topbar-title">
+          <button id="menuBtn" class="icon-btn mobile-only" aria-label="메뉴 열기">☰</button>
+          <div>
+            <p class="eyebrow" id="viewEyebrow">Workspace</p>
+            <h2 id="viewTitle">개요 대시보드</h2>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <div class="global-search-wrap">
+            <span>⌕</span>
+            <input id="globalSearch" type="search" placeholder="핵종, 에너지, 발생원, 시료 검색  /" aria-label="전체 검색" />
+          </div>
+          <button id="themeBtn" class="icon-btn" aria-label="테마 전환" title="Light/Dark">◐</button>
+        </div>
+      </header>
+
+      <div id="globalResults" class="global-results" hidden></div>
+      <section id="view" class="view-container" aria-live="polite"></section>
+    </main>
+  </div>
+
+  <div id="drawerBackdrop" class="drawer-backdrop" hidden></div>
+  <aside id="detailDrawer" class="detail-drawer" aria-hidden="true">
+    <div class="drawer-head">
+      <div>
+        <p class="eyebrow">Line detail</p>
+        <h3 id="drawerTitle">상세 정보</h3>
+      </div>
+      <button id="drawerClose" class="icon-btn" aria-label="상세 닫기">×</button>
+    </div>
+    <div id="drawerBody" class="drawer-body"></div>
+  </aside>
+
+  <script src="assets/data.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
